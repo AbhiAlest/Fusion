@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Share Media</title>
-  <style>
-    /* Add styles for shared media and make it look better */
-  </style>
-</head>
-<body>
-  <h1>Share Media</h1>
-  <p>Copy the link below to share your media:</p>
-  <input type="text" value="{{ url_for('share', id=media[0]) }}" readonly>
-  <button onclick="copyLink()">Copy Link</button>
-  {% if media[1].endswith('.mp4') %}
-    <video controls>
-      <source src="{{ url_for('static', filename='uploads/' + media[0]) }}" type="video/mp4">
-    </video>
-  {% else %}
-    <img src="{{ url_for('static', filename='uploads/' + media[0]) }}" alt="{{ media[1] }}">
-  {% endif %}
-  <script>
-    function copyLink() {
-      var copyText = document.querySelector("input");
-      copyText.select();
-      document.execCommand("copy");
-      alert("Link copied to clipboard!");
-    }
-  </script>
-</body>
-</html>
+import React from 'react';
+
+function SharePage(props) {
+  const mediaUrl = props.mediaUrl;
+
+  return (
+    <div>
+      <h1>Your media has been uploaded!</h1>
+      <p>Share this link with your friends:</p>
+      <input type="text" value={mediaUrl} readOnly />
+    </div>
+  );
+}
+
+export default SharePage;
