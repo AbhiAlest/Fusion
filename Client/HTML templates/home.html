@@ -1,20 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Upload Media</title>
-  <style>
-    /* fix design and stuff */
-  </style>
-</head>
-<body>
-  <h1>Upload Media</h1>
-  {% if error %}
-    <p>{{ error }}</p>
-  {% endif %}
-  <form method="post" enctype="multipart/form-data" onsubmit="return validateFile()">
-    <input type="file" name="file" id="file">
-    <button type="submit">Upload</button>
-  </form>
-</body>
-</html>
+import React from 'react';
+
+function HomePage() {
+  return (
+    <div>
+      <h1>Welcome to Fusion</h1>
+      <p>Upload your photos, videos, and GIFs and share the link with your friends!</p>
+      <form action="/upload" method="post" encType="multipart/form-data">
+        <label htmlFor="file">Choose a file:</label>
+        <input type="file" name="file" id="file" />
+        <br />
+        <label htmlFor="user_id">Enter your user ID:</label>
+        <input type="text" name="user_id" id="user_id" />
+        <br />
+        <input type="submit" value="Upload" />
+      </form>
+    </div>
+  );
+}
+
+export default HomePage;
