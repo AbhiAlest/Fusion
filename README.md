@@ -3,7 +3,7 @@
 <br />
 
 <p align="center">
-Fusion is a free website where anyone can upload videos, pictures, GIFs, and other types of media for easy sharing! 
+Fusion is a free website where anyone can upload videos, pictures, GIFs, and other media types for easy sharing! 
 </p>
 
 </div>
