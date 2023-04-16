@@ -1,21 +1,13 @@
-import React from 'react';
-
-function HomePage() {
-  return (
-    <div>
-      <h1>Welcome to Fusion</h1>
-      <p>Upload your photos, videos, and GIFs and share the link with your friends!</p>
-      <form action="/upload" method="post" encType="multipart/form-data">
-        <label htmlFor="file">Choose a file:</label>
-        <input type="file" name="file" id="file" />
-        <br />
-        <label htmlFor="user_id">Enter your user ID:</label>
-        <input type="text" name="user_id" id="user_id" />
-        <br />
-        <input type="submit" value="Upload" />
-      </form>
-    </div>
-  );
-}
-
-export default HomePage;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Fusion!</title>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./home.jsx"></script>
+  </body>
+</html>
