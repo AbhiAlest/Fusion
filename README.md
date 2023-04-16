@@ -9,7 +9,8 @@ Fusion is a free website where anyone can upload videos, pictures, GIFs, and oth
 </div>
 
 <div style="text-align:center;">
-<p> <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" height="30" style="vertical-align:top; margin:4px">
+  <p> 
+    <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" height="30" style="vertical-align:top; margin:4px">
 <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white" alt="CSS" height="30" style="vertical-align:top; margin:4px">
 <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="Javascript" height="30" style="vertical-align:top; margin:4px">
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"  alt="React" height="30" style="vertical-align:top; margin:4px"/> 
