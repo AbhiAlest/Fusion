@@ -1,42 +1,68 @@
-const express = require('express');
-const multer = require('multer');
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+import express, { Request, Response } from 'express';
+import multer from 'multer';
+import path from 'path';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+
 const app = express();
 const port = 3000;
 
-// database connection
-const dbPath = path.resolve(__dirname, 'media.db');
-const db = new sqlite3.Database(dbPath);
+// SQLite database
+async function init() {
+  const db = await open({
+    filename: 'media.db',
+    driver: sqlite3.Database,
+  });
+  await db.exec(`
+    CREATE TABLE IF NOT EXISTS media (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      type TEXT,
+      date TEXT,
+      user_id INTEGER
+    );
+  `);
+  console.log('Database initialized');
+}
+init();
 
-// uploading files
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.resolve(__dirname, 'static/uploads'));
+  destination: function (req, file, cb) {
+    cb(null, 'static/uploads');
   },
-  filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now());
+  filename: function (req, file, cb) {
+    const ext = path.extname(file.originalname);
+    cb(null, Date.now() + ext);
   }
 });
-
-// multer middleware forfile uploads
 const upload = multer({ storage: storage });
 
-app.post('/upload', upload.single('file'), (req, res) => {
-  // file metadata goes to SQL database
-  const { originalname, mimetype, filename, size } = req.file;
-  const query = `INSERT INTO media (filename, mimetype, size) VALUES (?, ?, ?)`;
-  db.run(query, [filename, mimetype, size], (err) => {
-    if (err) {
-      console.error(err.message);
-      return res.status(500).json({ message: 'Error storing file metadata' });
-    }
-    // url goes to client
-    const fileUrl = req.protocol + '://' + req.get('host') + '/uploads/' + filename;
-    res.status(200).json({ url: fileUrl });
+// Express.js routes
+app.use(express.json());
+
+app.get('/', (req: Request, res: Response) => {
+  res.sendFile(path.join(__dirname, 'static', 'home.html'));
+});
+
+app.post('/upload', upload.single('file'), async (req: Request, res: Response) => {
+  const { filename, mimetype, size } = req.file;
+  const { user_id } = req.body;
+  const date = new Date().toISOString();
+
+  // Add file data to database
+  const db = await open({
+    filename: 'media.db',
+    driver: sqlite3.Database,
   });
+  const { lastID } = await db.run(
+    'INSERT INTO media (name, type, date, user_id) VALUES (?, ?, ?, ?)',
+    [filename, mimetype, date, user_id]
+  );
+  console.log(`File ${filename} uploaded by user ${user_id} with ID ${lastID}`);
+
+  res.send('File uploaded successfully');
 });
 
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server listening on port ${port}`);
 });
