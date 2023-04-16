@@ -1,26 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Crop, Resize, Filter } from './filters';
 
 function EditingPage(props) {
-  const [imageSrc, setImageSrc] = useState('');
-
-  const handleFileInputChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (event) => {
-      setImageSrc(event.target.result);
-    };
-  };
-
+  // your code for image editing functionality goes here
+  
   return (
     <div>
-      <h1>Editing Page</h1>
-      <input type="file" onChange={handleFileInputChange} />
-      {imageSrc && (
-        <img src={imageSrc} alt="Uploaded media" />
-      )}
-      {/* code for image editing features here */}
-      <button onClick={() => props.onSubmit(imageSrc)}>Share</button>
+      <h1>Editing page</h1>
+      <Crop />
+      <Resize />
+      <Filter />
+      {/* rest of the code for editing page */}
     </div>
   );
 }
