@@ -1,15 +1,10 @@
-import React from 'react';
-
-function SharePage(props) {
-  const mediaUrl = props.mediaUrl;
-
-  return (
-    <div>
-      <h1>Your media has been uploaded!</h1>
-      <p>Share this link with your friends:</p>
-      <input type="text" value={mediaUrl} readOnly />
-    </div>
-  );
-}
-
-export default SharePage;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Share Page</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="./share.jsx"></script>
+  </body>
+</html>
