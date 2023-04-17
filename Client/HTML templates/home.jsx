@@ -9,7 +9,7 @@ function Home() {
     <div className={`container ${isDarkMode ? 'dark-mode' : ''}`}>
       <div className="navbar">
         <div className="logo">
-          <a href="https://example.com"> // your website (buy domain)
+          <a href="https://examplewebsite.com">  
             <img src="/images/logo.png" alt="Fusion logo" />
           </a>
         </div>
