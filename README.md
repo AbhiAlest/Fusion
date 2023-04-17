@@ -1,7 +1,4 @@
-<div align="center">
-  <p> 
-    <img src="https://github.com/AbhiAlest/Fusion/blob/main/Fusion.png?raw=true" alt = "Fusion Logo" >
-</p> 
+
 
 
 
@@ -30,5 +27,10 @@ Fusion is a free website where anyone can upload videos, pictures, GIFs, and oth
 </p>   
 
 
+
+<div align="center">
+  <p> 
+    <img src="https://github.com/AbhiAlest/Fusion/blob/main/Fusion.png?raw=true" alt = "Fusion Logo" >
+</p> 
 
 
