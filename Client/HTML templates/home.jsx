@@ -10,7 +10,7 @@ function Home() {
       <div className="navbar">
         <div className="logo">
           <a href="https://examplewebsite.com">  
-            <img src="/images/logo.png" alt="Fusion logo" />
+            <img src="https://raw.githubusercontent.com/AbhiAlest/Fusion/main/Fusion.png" alt="Fusion Logo" />
           </a>
         </div>
         <div className="menu">
@@ -30,7 +30,7 @@ function Home() {
       </div>
       <div className="divider"></div>
       <div className="content">
-        {/* Add your existing content here */}
+        {/* Add existing stuff here */}
       </div>
     </div>
   );
