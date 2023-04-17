@@ -1,7 +1,6 @@
 <div align="center">
   <p> 
-    <img src="
-https://raw.githubusercontent.com/AbhiAlest/Fusion/main/Fusion.png" alt = "Fusion Logo" >
+    <img src="https://github.com/AbhiAlest/Fusion/blob/main/Fusion.png?raw=true" alt = "Fusion Logo" >
 </p> 
 
 
