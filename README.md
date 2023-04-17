@@ -1,3 +1,12 @@
+<div align="center">
+  <p> 
+    <img src="
+https://github.com/AbhiAlest/Fusion/blob/main/Fusion.png?raw=true" alt = "Fusion Logo" >
+</p> 
+
+
+
+
 <h1 align="center">Fusion</h1>
 
 <br />
